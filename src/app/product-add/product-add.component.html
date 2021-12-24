@@ -1,0 +1,47 @@
+<div class="container">
+    <h3 class="">Thêm Sách Mới</h3> 
+<div class="">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Tên Sách</label>
+            <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
+    
+            <!-- Show validate -->
+            <p 
+            *ngIf="!productForm.controls['name']?.valid && (productForm.controls['name']?.dirty
+            ||productForm.controls['name']?.touched)"
+            class="help-block text-danger">Name is required</p>
+        </div>
+        <div class="form-group">
+            <label for="auth">Tác Giả</label>
+            <input type="text" class="form-control" id="auth" placeholder="auth" formControlName="auth">
+    
+            <!-- Show validate -->
+            <p 
+            *ngIf="!productForm.controls['auth']?.valid && (productForm.controls['auth']?.dirty
+            ||productForm.controls['auth']?.touched)"
+            class="help-block text-danger">Auth is required</p>
+    
+        </div>
+        <div class="form-group">
+            <label for="content">Mô Tả</label>
+            <textarea type="text" class="form-control" id="content" placeholder="content" formControlName="content">
+            </textarea>
+            <!-- Show validate -->
+            <p 
+            *ngIf="!productForm.controls['content']?.valid && (productForm.controls['content']?.dirty
+            ||productForm.controls['content']?.touched)"
+            class="help-block text-danger">Content is required</p>
+    
+        </div>
+    
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary m-2" [disabled]="!productForm.valid">Thêm Sách</button>
+            <button type="button" on-click="handleNo()"class="btn btn-danger">Thoát</button>
+
+        </div>
+        
+      </form>
+</div>
+
+</div>
